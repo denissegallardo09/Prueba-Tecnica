@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<form method="POST">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+             <td>#</td>
+             <td>Usuario</td>
+             <td>Nombre Completo</td>
+             <td>Correo Electrónico</td>
+             <td>Contraseña</td>
+             <td>Documento de Identidad</td>
+             <td>Teléfono</td>
+
+                  
+        </tr>
+    </thead>
+
+    <tbody>
+        {% if object_list %}
+        {% for usuario in object_list %}
+        
+        <tr>
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.usuario}}</td>
+            <td>{{usuario.nombrecompleto}}</td>
+            <td>{{usuario.correo}}</td>
+            <td>{{usuario.contraseña}}</td>
+            <td>{{usuario.documento}}</td>
+            <td>{{usuario.telefono}}</td>
+            
+            <td>
+            <!-- Crear botón que nos permita editar un registro por medio de su id -->
+            <a class="btn btn-primary" href="{%url 'usuario_edit' usuario.id%}"> 
+                Editar
+            </a>
+            <!-- Crear botón que nos permita eliminar un registro por medio de su id -->
+            <a class="btn btn-danger" href="{%url 'usuario_delete' usuario.id%}">
+                Eliminar
+            </a>
+            
+            </td>
+        </tr>
+
+    
+        {% endfor %}
+        {% else %}
+        <h1>No se encuentran registros</h1>
+        {% endif %}
+    </tbody>
+</table>
+<div>
+    <!-- Crear botón que nos permita añadir un nuevo registro -->
+    <a class="btn btn-danger" href="{%url 'usuario_crear' %}">
+       Añadir
+    </a>
+   
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %} 
+
+{% block content %}
+
+<!-- Crear botón que nos permita eliminar un registro -->
+<form method="POST">
+    {% csrf_token %}
+    <h4>¿Deseas eliminar el registro de el usuario {{usuarios.usuario}}</h4>
+<button class="btn btn-danger" type="submit" class="btn btn-primary";>Si,Eliminar</button> 
+    <a class="btn btn-secondary" href="{% url 'usuario_listar'%}">
+        Cancelar</a>
+</form>
+{% endblock  %}

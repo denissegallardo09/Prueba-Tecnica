@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+
+
+{% block navbar %}
+{% endblock %}
+
+
+{% block content %}
+<!-- Finalizar proceso de recuperación de contraseña -->
+<h2 class="text-left">Se ha reseteado la contraseña de manera exitosa</h2>
+<p class="text-left"><a href="{% url 'login' %}">Iniciar sesión</a></p>
+{% endblock %}

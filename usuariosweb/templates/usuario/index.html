@@ -1,0 +1,69 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+HotelSoft
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+<body>
+    <!-- Agregar estilos a la pagina de inicio -->
+    <style type="text/css">
+    body{
+        background: url(https://static8.depositphotos.com/1005404/996/i/600/depositphotos_9968183-stock-photo-build-bank.jpg) #CCC no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+
+    .abs-center{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .container{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .row{
+        background-color: rgb(131, 147, 155);
+    }
+    </style>
+</body>
+<!-- usar un contenedor para iniciar con usuario y contraseña a los datos almacenados -->
+<div class="container">
+    <div class="abs-center">
+ <form method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-d-8 col-md-offset-2">
+             <div class="form-group">
+                 <label for="username">Nombre de usuario</label>
+                 <input class="form-control" type="text" name="username">
+             </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-d-8 col-md-offset-2">
+             <div class="form-group">
+                 <label for="username">Contraseña</label>
+                 <input class="form-control" type="password" name="password">
+             </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-d-8 col-md-offset-2">
+             <div class="form-group">
+               <a href="{% url 'password_reset' %}">Olvide mi contraseña</a>  
+               <input class="btn btn-primary" type="submit" value="Ingresar">
+             </div>
+        </div>
+     </div>
+    
+ </form>
+</div>
+</div>
+{% endblock %}
